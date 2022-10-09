@@ -38,6 +38,10 @@
     "pug": "^3.0.2",
     "regenerator-runtime": "^0.13.7"
   },
+  "engines": {
+    "node": "16.14.0",
+    "npm": "8.5.4"
+  },
   "devDependencies": {
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.19.3",
