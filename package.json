@@ -7,7 +7,6 @@
     "url": "git+https://github.com/nomadcoders/wetube-reloaded.git"
   },
   "scripts": {
-    "Start": "node build/init.js",
     "build": "npm run build:server",
     "build:server": "babel src -d build",
     "build:assets": "webpack --mode=production",
