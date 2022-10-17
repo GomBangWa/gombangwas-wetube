@@ -1,1 +1,1 @@
-web: node build/init.j
+web: node build/init.js
