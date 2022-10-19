@@ -32,7 +32,7 @@ export const localsMiddleware = (req, res, next) => {
   res.header("Cross-Origin-Opener-Policy", "same-origin");
   res.header(
     "Access-Control-Allow-Origin",
-    "https://gombangwas-wetube.s3.amazonaws.com"
+    "https://gombangwas-wetube.s3.amazonaws.com/"
   );
   next();
 };
