@@ -32,6 +32,7 @@ var localsMiddleware = function localsMiddleware(req, res, next) {
   res.locals.isHeroku = isHeroku;
   res.header("Cross-Origin-Embedder-Policy", "require-corp");
   res.header("Cross-Origin-Opener-Policy", "same-origin");
+  res.header("Access-Control-Allow-Origin", "https://gombangwas-wetube.s3.amazonaws.com");
   next();
 };
 exports.localsMiddleware = localsMiddleware;

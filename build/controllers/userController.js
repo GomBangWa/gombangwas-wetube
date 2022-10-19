@@ -131,7 +131,7 @@ var postLogin = /*#__PURE__*/function () {
           case 12:
             req.session.loggedIn = true;
             req.session.user = user;
-            console.log(loggedInUser.avatarUrl);
+            console.log("logged in user", loggedInUser.avatarUrl);
             return _context2.abrupt("return", res.redirect("/"));
           case 16:
           case "end":
