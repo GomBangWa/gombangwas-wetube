@@ -13,30 +13,14 @@ const isHeroku = process.env.NODE_ENV === "production";
 
 const s3ImageUploader = multerS3({
   s3: s3,
-  bucket: `gombangwas-wetube/image`,
+  bucket: `gombangwas-wetube/images`,
   acl: "public-read",
 });
 
 const s3VideoUploader = multerS3({
   s3: s3,
-  bucket: `gombangwas-wetube/video`,
+  bucket: `gombangwas-wetube/videos`,
   acl: "public-read",
-});
-
-export const avatarUpload = multer({
-  dest: "uploads/avatars/",
-  limits: {
-    fileSize: 3000000,
-  },
-  storage: isHeroku ? s3ImageUploader : undefined,
-});
-
-export const videoUpload = multer({
-  dest: "uploads/videos/",
-  limits: {
-    fileSize: 10000000,
-  },
-  storage: isHeroku ? s3VideoUploader : undefined,
 });
 
 export const localsMiddleware = (req, res, next) => {
@@ -66,3 +50,19 @@ export const publicOnlyMiddleware = (req, res, next) => {
     return res.redirect("/");
   }
 };
+
+export const avatarUpload = multer({
+  dest: "uploads/avatars/",
+  limits: {
+    fileSize: 3000000,
+  },
+  storage: isHeroku ? s3ImageUploader : undefined,
+});
+
+export const videoUpload = multer({
+  dest: "uploads/videos/",
+  limits: {
+    fileSize: 10000000,
+  },
+  storage: isHeroku ? s3VideoUploader : undefined,
+});
