@@ -23,6 +23,13 @@ const s3VideoUploader = multerS3({
   acl: "public-read",
 });
 
+const corsOptions = {
+  origin: "https://gombangwas-wetube.herokuapp.com",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
 export const localsMiddleware = (req, res, next) => {
   res.locals.loggedIn = Boolean(req.session.loggedIn);
   res.locals.siteName = "Wetube";
@@ -30,11 +37,11 @@ export const localsMiddleware = (req, res, next) => {
   res.locals.isHeroku = isHeroku;
   res.header("Cross-Origin-Embedder-Policy", "require-corp");
   res.header("Cross-Origin-Opener-Policy", "same-origin");
-  res.setHeader(
+  res.header(
     "Access-Control-Allow-Origin",
-    "https://gombangwas-wetube.s3.amazonaws.com/"
+    "https://gombangwas-wetube.herokuapp.com"
   );
-  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Credentials", true);
   next();
 };
 
