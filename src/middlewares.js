@@ -28,7 +28,7 @@ export const localsMiddleware = (req, res, next) => {
   res.locals.siteName = "Wetube";
   res.locals.loggedInUser = req.session.user || {};
   res.locals.isHeroku = isHeroku;
-  res.header("Cross-Origin-Embedder-Policy", "require-corp");
+  res.header("Cross-Origin-Embedder-Policy", "credentialless");
   res.header("Cross-Origin-Opener-Policy", "same-origin");
   res.header(
     "Access-Control-Allow-Origin",
