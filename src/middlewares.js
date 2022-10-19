@@ -30,10 +30,11 @@ export const localsMiddleware = (req, res, next) => {
   res.locals.isHeroku = isHeroku;
   res.header("Cross-Origin-Embedder-Policy", "require-corp");
   res.header("Cross-Origin-Opener-Policy", "same-origin");
-  res.header(
+  res.setHeader(
     "Access-Control-Allow-Origin",
     "https://gombangwas-wetube.s3.amazonaws.com/"
   );
+  res.setHeader("Access-Control-Allow-Credentials", "true");
   next();
 };
 
