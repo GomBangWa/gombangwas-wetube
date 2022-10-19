@@ -4,11 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = void 0;
-
 var _mongoose = _interopRequireDefault(require("mongoose"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
 var videoSchema = new _mongoose["default"].Schema({
   title: {
     type: String,
@@ -62,8 +59,6 @@ videoSchema["static"]("formatHashtags", function (hashtags) {
     return word.startsWith("#") ? word : "#".concat(word);
   });
 });
-
 var Video = _mongoose["default"].model("Video", videoSchema);
-
 var _default = Video;
 exports["default"] = _default;
