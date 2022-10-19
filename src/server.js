@@ -25,6 +25,12 @@ app.use(
     store: MongoStore.create({ mongoUrl: process.env.DB_URL }),
   })
 );
+const corsOptions = {
+  origin: "https://gombangwas-wetube.herokuapp.com",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(flash());
 app.use(localsMiddleware);
 app.use("/uploads", express.static("uploads"));

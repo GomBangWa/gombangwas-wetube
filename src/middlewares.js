@@ -23,13 +23,6 @@ const s3VideoUploader = multerS3({
   acl: "public-read",
 });
 
-const corsOptions = {
-  origin: "https://gombangwas-wetube.herokuapp.com",
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
-
 export const localsMiddleware = (req, res, next) => {
   res.locals.loggedIn = Boolean(req.session.loggedIn);
   res.locals.siteName = "Wetube";
